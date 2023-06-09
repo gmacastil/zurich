@@ -1,0 +1,11 @@
+export POSTGRES_HOST=localhost
+export POSTGRES_PORT=5432
+export POSTGRES_USER=postgres
+export POSTGRES_PASSWORD=123456
+export AZURE_TOKEN=yshl7hkhdwrhlzrydli4y6ip6btjlh5qc2nz3z3l5jyxqxekyu6a
+export GITHUB_TOKEN=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
+
+#Run
+yarn dev
+
+

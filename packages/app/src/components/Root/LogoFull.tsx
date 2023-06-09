@@ -1,15 +1,22 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
+import CustomLogoFull from './logo/nttdata.png';
+
+const LogoFull = () => {
+  const classes = useStyles();
+  return <img src={CustomLogoFull} className={classes.png}/>;
+};
+
+
 const useStyles = makeStyles({
-  svg: {
-    width: 'auto',
-    height: 30,
-  },
-  path: {
-    fill: '#7df3e1',
-  },
+  png: {
+    width: 190,
+    height: 28,
+  }
 });
+
+/*
 const LogoFull = () => {
   const classes = useStyles();
 
@@ -26,5 +33,6 @@ const LogoFull = () => {
     </svg>
   );
 };
+*/
 
 export default LogoFull;

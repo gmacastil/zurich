@@ -19,6 +19,9 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get install -y --no-install-recommends libsqlite3-dev python3 build-essential && \
     yarn config set python /usr/bin/python3
 
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN pip3 install mkdocs-techdocs-core==1.1.7
+
 # From here on we use the least-privileged `node` user to run the backend.
 USER node
 
@@ -26,6 +29,8 @@ USER node
 # If it is instead created as `root` then the `tar` command below will fail: `can't create directory 'packages/': Permission denied`.
 # If this occurs, then ensure BuildKit is enabled (`DOCKER_BUILDKIT=1`) so the app dir is correctly created as `node`.
 WORKDIR /app
+
+RUN mkdir /app/docs
 
 # This switches many Node.js dependencies to production mode.
 ENV NODE_ENV production
